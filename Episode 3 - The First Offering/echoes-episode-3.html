@@ -530,7 +530,7 @@
     <div class="story" style="font-size:15px; opacity:0.75; margin-bottom:14px;">Adam and Eve were driven from Eden, and the ground itself bore the weight of their choice.</div>
    <div style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:18px;">Echoes of the Journey — Episode 3 of 21</div>
     <div class="story">You stand in Cain's place. Eleven moments will ask what he saw, felt, and chose. Answer as the story remembers it.</div>
-    <p style="font-size:12px; color:var(--parchment-dim); text-align:center; margin-top:-10px; margin-bottom:16px;">Scripture quotations taken from the (NASB®) New American Standard Bible®, Copyright © 1960, 1971, 1977, 1995, 2020 by The Lockman Foundation. Used by permission. All rights reserved. www.Lockman.org</p>
+    <p style="font-size:12px; color:var(--parchment-dim); text-align:center; margin-top:-10px; margin-bottom:16px;">All Scripture quotations are from the NASB 2020.</p>
     <img src="logo.png" alt="Altar2Jesus logo" style="display:block; width:70px; margin:0 auto 14px auto; opacity:0.9;">
     <button class="start-btn" id="beginBtn">Begin the Testimony</button>
     <div style="display:flex; gap:10px; margin-top:10px;">
@@ -1132,6 +1132,17 @@ document.getElementById('endOutro').textContent = "I carry this mark for the res
      document.getElementById('endTitle').textContent = earnedBadge.title;
      endCopy.textContent = `${earnedBadge.message} You answered ${scoreCorrect} of ${questions.length} moments as the story remembers them.`;
      updateTrail();
+
+     try {
+       const key = 'echoes_ep3_score';
+       const existing = JSON.parse(localStorage.getItem(key) || 'null');
+       const best = existing ? Math.max(existing.best, scoreCorrect) : scoreCorrect;
+       localStorage.setItem(key, JSON.stringify({
+         best: best,
+         total: questions.length,
+         lastPlayed: scoreCorrect
+       }));
+     } catch (e) {}
    }
 
 document.getElementById('beginBtn').addEventListener('click', () => {
