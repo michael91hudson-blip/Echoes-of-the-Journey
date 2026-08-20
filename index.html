@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes of the Journey</title>
+<style>
+  :root{
+    --ink:#181410;
+    --ink-soft:#231d17;
+    --parchment:#e9dfc8;
+    --parchment-dim:#a89a7c;
+    --ember:#c14a24;
+    --ember-bright:#d3641f;
+    --gold:#d4a94f;
+    --serif:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    --sans:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: radial-gradient(ellipse at top, #241c14 0%, var(--ink) 55%), var(--ink);
+    color:var(--parchment);
+    font-family:var(--sans);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ width:100%; max-width:460px; }
+  .eyebrow{
+    font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--gold); text-align:center; margin-bottom:10px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400; font-size:32px;
+    text-align:center; margin:0 0 6px; letter-spacing:.01em;
+  }
+  .subtitle{
+    text-align:center; color:var(--parchment-dim); font-size:14px;
+    font-style:italic; margin-bottom:8px; font-family:var(--serif);
+  }
+  .credit{
+    text-align:center; color:var(--parchment-dim); font-size:11px;
+    margin-bottom:36px; letter-spacing:.02em;
+  }
+
+  .vine{
+    display:block; margin:0 auto 28px auto; width:64px; height:auto;
+    opacity:.9;
+  }
+
+  .list{ display:flex; flex-direction:column; gap:12px; }
+  .ep-link{
+    display:block; text-decoration:none; position:relative;
+    background:var(--ink-soft);
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, transparent 1px, transparent 2px);
+    border:1px solid #33291d; border-radius:4px;
+    padding:18px 20px; overflow:hidden;
+    transition:border-color .2s ease, transform .15s ease;
+  }
+  .ep-link::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg, transparent, var(--ember), var(--gold), transparent);
+    opacity:.55;
+  }
+  .ep-link:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .ep-num{
+    font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:5px;
+  }
+  .ep-title{
+    font-family:var(--serif); font-size:19px; color:var(--parchment);
+    font-style:italic;
+  }
+  .ep-ref{
+    font-size:12px; color:var(--parchment-dim); margin-top:3px;
+  }
+  .ep-score{
+    font-size:12px; color:var(--gold); margin-top:9px;
+    letter-spacing:.03em;
+  }
+  .ep-score.unplayed{ color:var(--parchment-dim); font-style:italic; opacity:.7; }
+
+  /* Episodes 4-8 are built but not yet uploaded to GitHub Pages (deliberate
+     scope hold - see project notes). This class hides their cards without
+     deleting them, so they're ready to reveal the instant each one goes
+     live: just delete class="hidden-episode" from that card's <a> tag. */
+  .hidden-episode{ display:none; }
+
+  .footer-note{
+    text-align:center; color:var(--parchment-dim); font-size:12px;
+    line-height:1.6; margin-top:34px; padding-top:20px;
+    border-top:1px solid #33291d;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <svg class="vine" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50,122 C46,95 54,78 50,55 C46,38 54,25 50,10" fill="none" stroke="#d4a94f" stroke-width="2" stroke-linecap="round"/>
+    <path d="M50,95 C38,90 30,86 24,82" fill="none" stroke="#d4a94f" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+    <path d="M50,68 C64,62 74,58 80,54" fill="none" stroke="#d4a94f" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+    <path d="M50,40 C40,34 33,29 28,25" fill="none" stroke="#d4a94f" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+    <circle cx="24" cy="82" r="3.2" fill="#c14a24"/>
+    <circle cx="80" cy="54" r="2.8" fill="#d4a94f"/>
+    <circle cx="28" cy="25" r="2.8" fill="#d4a94f"/>
+    <circle cx="50" cy="10" r="2.8" fill="#d4a94f"/>
+  </svg>
+
+  <div class="eyebrow">Altar2Jesus Presents</div>
+  <h1>Echoes of the Journey</h1>
+  <div class="subtitle">Walk the stories of Genesis, one testimony at a time.</div>
+  <div class="credit">Scripture quotations taken from the NASB2020, used by permission of The Lockman Foundation.</div>
+
+  <div class="list">
+    <a class="ep-link" href="Episode%201%20-%20In%20the%20Beginning/echoes-episode-1.html">
+      <div class="ep-num">Episode 1</div>
+      <div class="ep-title">In the Beginning</div>
+      <div class="ep-ref">Genesis 1</div>
+      <div class="ep-score" id="score-ep1">—</div>
+    </a>
+    <a class="ep-link" href="Episode%202%20-%20The%20Garden%20of%20Eden/echoes-episode-2.html">
+      <div class="ep-num">Episode 2</div>
+      <div class="ep-title">The Garden of Eden</div>
+      <div class="ep-ref">Genesis 2–3</div>
+      <div class="ep-score" id="score-ep2">—</div>
+    </a>
+    <a class="ep-link" href="Episode%203%20-%20The%20First%20Offering/echoes-episode-3.html">
+      <div class="ep-num">Episode 3</div>
+      <div class="ep-title">The First Offering</div>
+      <div class="ep-ref">Genesis 4</div>
+      <div class="ep-score" id="score-ep3">—</div>
+    </a>
+    <a class="ep-link hidden-episode" href="Episode%204%20-%20The%20Call%20of%20Noah/echoes-episode-4.html">
+      <div class="ep-num">Episode 4</div>
+      <div class="ep-title">The Call of Noah</div>
+      <div class="ep-ref">Genesis 6–7</div>
+      <div class="ep-score" id="score-ep4">—</div>
+    </a>
+    <a class="ep-link hidden-episode" href="Episode%205%20-%20The%20Waters%20Recede/echoes-episode-5.html">
+      <div class="ep-num">Episode 5</div>
+      <div class="ep-title">The Waters Recede</div>
+      <div class="ep-ref">Genesis 8–9</div>
+      <div class="ep-score" id="score-ep5">—</div>
+    </a>
+    <a class="ep-link hidden-episode" href="Episode%206%20-%20The%20Tower%20of%20Babel/echoes-episode-6.html">
+      <div class="ep-num">Episode 6</div>
+      <div class="ep-title">The Tower of Babel</div>
+      <div class="ep-ref">Genesis 11</div>
+      <div class="ep-score" id="score-ep6">—</div>
+    </a>
+    <a class="ep-link hidden-episode" href="Episode%207%20-%20The%20Call%20of%20Abram/echoes-episode-7.html">
+      <div class="ep-num">Episode 7</div>
+      <div class="ep-title">The Call of Abram</div>
+      <div class="ep-ref">Genesis 12</div>
+      <div class="ep-score" id="score-ep7">—</div>
+    </a>
+    <a class="ep-link hidden-episode" href="Episode%208%20-%20The%20King%20of%20Salem/echoes-episode-8.html">
+      <div class="ep-num">Episode 8</div>
+      <div class="ep-title">The King of Salem</div>
+      <div class="ep-ref">Genesis 13–14</div>
+      <div class="ep-score" id="score-ep8">—</div>
+    </a>
+  </div>
+
+  <div class="footer-note">This is an early trial version. More episodes are on the way — thank you for walking through the beginning of the story with us.</div>
+</div>
+
+<script>
+  // Reads each episode's saved best score from localStorage (written by
+  // that episode's own showEnd() function) and displays it on its card.
+  // Fails silently if localStorage is unavailable or a episode hasn't
+  // been played yet — the picker still works fine either way.
+  ['ep1', 'ep2', 'ep3', 'ep4', 'ep5', 'ep6', 'ep7', 'ep8'].forEach(ep => {
+    const el = document.getElementById('score-' + ep);
+    if (!el) return;
+    try {
+      const raw = localStorage.getItem('echoes_' + ep + '_score');
+      if (!raw) {
+        el.textContent = 'Not yet played';
+        el.classList.add('unplayed');
+        return;
+      }
+      const data = JSON.parse(raw);
+      el.textContent = 'Best: ' + data.best + ' / ' + data.total + ' correct';
+    } catch (e) {
+      el.textContent = 'Not yet played';
+      el.classList.add('unplayed');
+    }
+  });
+</script>
+</body>
+</html>
